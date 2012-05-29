@@ -1,4 +1,6 @@
 from objectserver import *
+from assetserver import *
+from zipserver import *
 
-server = ObjectServer()
+server = ZipServer()
 server.listen()
