@@ -33,7 +33,10 @@ class ZipClient(BaseClient):
         received = self.socket.recv(self.buffer_size)
 
         if received:
+            # Unpickle the payload
             game_state = pickle.loads(received)
+
+            # Check and request any assets needed
             self.request_assets(game_state)
             return game_state
         else:
@@ -54,5 +57,5 @@ class ZipClient(BaseClient):
         self.screen.blit(paddle2_image, paddle2.rect)
 
         pygame.display.update()
-        print 'Drawing screen'
+        #print 'Drawing screen'
 
